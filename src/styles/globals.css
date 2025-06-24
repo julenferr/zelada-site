@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F6FDFF;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* Cabezal */
+
+.cabezal {
+  height: 100vh;
+  background-color: #f7fdff;
+}
+
+h2{
+  font-size: clamp(18px, 2.18vw, 54px);
+  line-height: 1.2857;
+}
+
+.flecha-abajo{
+  width: 2.239vw;
+}
+
+#proyectos {
+  z-index: -10;
+  position: relative;
+}
+
+/* Menú */
+
+header{
+  border-color: #1d1d1d;
+  background-color: var(--background);
+  z-index: 9;
+  margin-top: -72px;
+}
+
+nav ul li a{
+
+  font-size: clamp(14px, 1.145vw, 28px);
+  line-height: 1.666vw;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.bloque-h2{
+  background-color: #F6FDFF;
+}
+
+.cormorant{
+  font-family: "Cormorant", serif;
+}
+
+.neue{
+  font-family: "neue-haas-grotesk-text", serif;
+}
+
+
+h3{
+  font-size: 162px;
+  line-height: 1;
+}
+
+
+header.shrink nav {
+  padding-top: 8px; /* tailwind: py-2 */
+  padding-bottom: 8px;
+}
+
+header.shrink img.logo {
+  
+}
+
+header.shrink ul li a{
+  
+  transition: all .2s ease;
+}
+
+#trabajo-detalle header{
+  margin-top: 0px;
+}
+
+#detalle-trabajo header.shrink nav {
+  border-bottom: 1px solid #1d1d1d;
+}
+
+
+/* Galería */
+
+.volanta-home{
+  font-size: clamp(24px, 1.666vw, 32px);
+  line-height: 1;
+  text-shadow: none;
+  background-color: transparent;
+}
+
+.scale-initial {
+  transform: scale(0.85);
+}
+
+.is-inview.scale-initial {
+  transform: scale(1);
+}
+
+.masonry-item h3{
+
+  font-size: clamp(15px, 0.937vw, 18px);
+  line-height: 1.333;  
+}
+
+
+/* footer */
+
+footer{
+  background-color: #1D1D1D;
+  height: 100vh;
+  font-family: neue-haas-grotesk-display, sans-serif;
+  z-index: 1000;
+}
+
+footer p{
+  color: white;
+  font-size: clamp(32px, 1.875vw ,36px);
+  line-height: 1.333;
+}
+
+footer ul li{
+  font-size: clamp(18px, 1.14vw ,22px);
+  line-height: 1.45;
+  color: white;
+}
+
+  footer ul li span{
+    display: block;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  footer ul li span a{
+    display: block;
+  }
+
+footer .info{
+  border-top: 1px solid rgb(255 255 255 / 40%);
+}
+footer .info span{
+  color: rgb(255 255 255 / 40%);
+}
+
+
+/* nosotras */
+
+.estudio {
+  font-size: clamp(13px, 1.45vw, 28px);
+  line-height: 1.4;
+}
+
+.nosotras-parrafo{
+  font-size: clamp(20px, 2.916vw, 56px);
+  line-height: 1.2;
+  text-indent: 8vw;
+}
+
+.perfiles{
+
+}
+
+.perfiles span{
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.estudio{
+      position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+    left: 0;
+    height: fit-content;
+}
+
+.zeta{
+  z-index:-100;
+  position: relative;
+}
+
+.logo.shrink{
+  width: 240px;
+}
+
+/* animaciones */
+
+footer img {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+footer img.is-inview {
+  opacity: 1;
+}
+
+/* CELULAR */
+
+@media only screen and (max-width: 768px) {
+
+  footer .info span{
+    font-size: 12px;
+  }
+
+
+  .flecha-abajo{
+    width: 18px;
+  }
+
+  .logo.shrink{
+    width: 164px;
+  }
+
+  .nosotras-parrafo{
+    line-height: 1.4;
+  }
+}
+
