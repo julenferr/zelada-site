@@ -21,7 +21,7 @@ export default function TrabajoDetalle() {
 
     const fetchTrabajo = async () => {
       try {
-        const res = await fetch(`http://localhost:1337/api/trabajos/${id}?populate=*&publicationState=preview`);
+        const res = await fetch(`https://zelada-cms.onrender.com/api/trabajos/${id}?populate=*&publicationState=preview`);
 
         const data = await res.json();
 
