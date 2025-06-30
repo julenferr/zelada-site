@@ -6,7 +6,7 @@ const Detalle = ({ imagenes }) => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const baseUrl = "http://localhost:1337";
+  const baseUrl = "https://zelada-cms.onrender.com";
 
   const slides = imagenes
     .map((item) => {
