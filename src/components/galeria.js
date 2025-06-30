@@ -93,7 +93,7 @@ export default function Galeria() {
             >
               {portadaUrl ? (
                 <img
-                  src={`http://localhost:1337${portadaUrl}`}
+                  src={`https://zelada-cms.onrender.com${portadaUrl}`}
                   alt={trabajo.titulo}
                 />
               ) : (
