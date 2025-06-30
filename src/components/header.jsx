@@ -50,7 +50,7 @@ export default function Header() {
       }`}
     >
       <nav className="flex justify-between items-center px-5 py-5 transition-all duration-300">
-        <ul className="flex gap-6 md:gap-8">
+        <ul className="flex gap-2 md:gap-8">
           <li>
             <a href="#proyectos">Proyectos</a>
           </li>

@@ -11,7 +11,7 @@ export default function Galeria() {
   useEffect(() => {
     const fetchTrabajos = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/trabajos?populate=*");
+        const res = await fetch("https://zelada-cms.onrender.com/api/trabajos?populate=*&pagination[limit]=100")
         const data = await res.json();
         console.log("Trabajos del fetch:", data);
         setTrabajos(data.data || []);

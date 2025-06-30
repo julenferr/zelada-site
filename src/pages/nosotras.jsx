@@ -53,7 +53,7 @@ export default function Nosotras() {
         		<p>Somos un estudio de diseño con fuerte impronta en ilustración.</p>
         	</div>
         	<div className="zeta col-start-0 md:col-start-4 col-span-4 md:col-span-8" data-scroll data-scroll-speed="-0.2">
-        		<img src="https://placehold.co/1920x1080" alt="" />
+        		<img src="http://localhost:1337/uploads/zelada_esptein_foto_grande_ced0937239.webp" alt="" />
         	</div>
         </div>
 
@@ -62,18 +62,18 @@ export default function Nosotras() {
 
         <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 mt-50">
         	<div className="perfiles col-start-1 md:col-start-2 col-span-4" data-scroll data-scroll-speed="0.2">
-        		<img className="zeta" src="https://placehold.co/614x490" alt="" data-scroll data-scroll-speed="-0.1"/>
-        		<span className="block neue ml-30 -mt-20 mb-2">Ana Zelada</span>
-        		<p className="ml-30 w-73 span-2 grid">Aliquam vel aliquet justo. Proin quis eros sodales, varius ligula et, eleifend ex. Morbi tempus efficitur velit id convallis. In hac habitasse platea dictumst. Donec non tortor ut eros elementum porttitor ac id erat.</p>
+        		<img className="zeta" src="http://localhost:1337/uploads/zelada_epstein_ana_80e1fd2e57.webp" alt="" data-scroll data-scroll-speed="-0.1"/>
+        		<span className="block neue ml-0 md:ml-30 -mt-20 mb-2">Ana Zelada</span>
+        		<p className="ml-0 md:ml-30 w-73 span-2 grid">Aliquam vel aliquet justo. Proin quis eros sodales, varius ligula et, eleifend ex. Morbi tempus efficitur velit id convallis. In hac habitasse platea dictumst. Donec non tortor ut eros elementum porttitor ac id erat.</p>
         	</div>
         	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-80 md:mt-120" data-scroll data-scroll-speed="-0.1">
-        		<img className="zeta" src="https://placehold.co/614x490" alt="" data-scroll data-scroll-speed="-0.2" />
-        		<span className="block neue ml-30 -mt-20 mb-2">Natalia Epstein</span>
-        		<p className="ml-30 w-73 span-2 grid">Aliquam vel aliquet justo. Proin quis eros sodales, varius ligula et, eleifend ex. Morbi tempus efficitur velit id convallis. In hac habitasse platea dictumst. Donec non tortor ut eros elementum porttitor ac id erat.</p>
+        		<img className="zeta" src="http://localhost:1337/uploads/zelada_epstein_natalia_6e577e4529.webp" alt="" data-scroll data-scroll-speed="-0.2" />
+        		<span className="block neue ml-0 md:ml-30 -mt-20 mb-2">Natalia Epstein</span>
+        		<p className="ml-0 md:ml-30 w-73 span-2 grid">Aliquam vel aliquet justo. Proin quis eros sodales, varius ligula et, eleifend ex. Morbi tempus efficitur velit id convallis. In hac habitasse platea dictumst. Donec non tortor ut eros elementum porttitor ac id erat.</p>
         	</div>
         </div>
         <div className="mt-70"> 
-        	<img src="https://placehold.co/1920x1080" alt="" />
+        	<img src="http://localhost:1337/uploads/nosotras_foto_grande_screen_3cdec8aaa8.webp" alt="" />
         </div>
       </main>
 

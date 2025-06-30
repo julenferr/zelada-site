@@ -7,7 +7,7 @@
 }
 
 .filtros button {
-  font-size: clamp(14px, 0.9375vw, 18px);
+  font-size: clamp(12px, 0.9375vw, 18px);
   line-height: 1.55;
   margin-right: 32px;
   border: none;
@@ -60,7 +60,7 @@
 
 @media only screen and (max-width: 768px) {
   .filtros button{
-    margin-right: 24px;
+    margin-right: 12px;
   }
 }
 
