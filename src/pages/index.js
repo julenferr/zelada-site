@@ -31,10 +31,12 @@ export default function Home() {
       <Head>
         <title>Zeladaepstein - Estudio de diseño</title>
         <meta name="description" content="Portfolio de zelada" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           href="https://db.onlinewebfonts.com/c/4c4c08af466e9ad071b6d69cf44093df?family=SaolDisplay-Regular"
           rel="stylesheet"
         />
+
       </Head>
 
       <div ref={scrollContainerRef} data-scroll-container>
