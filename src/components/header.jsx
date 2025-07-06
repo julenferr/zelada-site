@@ -8,39 +8,47 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!headerRef.current) return;
+  const handleScroll = () => {
+    if (!headerRef.current) return;
 
-      if (router.pathname === "/") {
-        // Página principal: shrink cuando header toca h3#proyectos
-        const headerRect = headerRef.current.getBoundingClientRect();
-        const proyectos = document.getElementById("proyectos");
-        if (!proyectos) return;
-        const proyectosRect = proyectos.getBoundingClientRect();
+    if (router.pathname === "/") {
+      // Página principal: shrink cuando header toca h3#proyectos
+      const headerRect = headerRef.current.getBoundingClientRect();
+      const proyectos = document.getElementById("proyectos");
+      if (!proyectos) return;
+      const proyectosRect = proyectos.getBoundingClientRect();
 
-        if (headerRect.bottom >= proyectosRect.top) {
-          setShrink(true);
-        } else {
-          setShrink(false);
-        }
-      } else if (router.pathname.startsWith("/trabajo/")) {
-        // Página detalle trabajo: shrink cuando scroll > 10
-        if (window.scrollY > 10) {
-          setShrink(true);
-        } else {
-          setShrink(false);
-        }
+      if (headerRect.bottom >= proyectosRect.top) {
+        setShrink(true);
       } else {
-        // Otros casos, si querés poner algo distinto, sino sacalo
         setShrink(false);
       }
-    };
+    } else if (router.pathname.startsWith("/trabajo/")) {
+      // Página detalle trabajo: shrink cuando scroll > 10
+      if (window.scrollY > 10) {
+        setShrink(true);
+      } else {
+        setShrink(false);
+      }
+    } else if (router.pathname === "/nosotras") {
+      // En la página nosotras, shrink apenas empiece a scrollear
+      if (window.scrollY > 1) {
+        setShrink(true);
+      } else {
+        setShrink(false);
+      }
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    } else {
+      setShrink(false);
+    }
+  };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [router.pathname]);
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [router.pathname]);
+
 
   return (
     <header
@@ -52,7 +60,7 @@ export default function Header() {
       <nav className="flex justify-between items-center px-5 py-5 transition-all duration-300">
         <ul className="flex gap-2 md:gap-8">
           <li>
-            <a href="#proyectos">Proyectos</a>
+            <a href="/">Proyectos</a>
           </li>
           <li>
             <Link href="/nosotras">Nosotras</Link>

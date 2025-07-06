@@ -8,12 +8,13 @@ export default function Footer() {
     		<p className="col-start-1 md:col-start-2 col-span-12 md:col-span-3 font-light md:mb-0 mb-10">Somos un estudio de diseño con fuerte impronta en la <i>ilustración</i>.</p>
     		<ul className="col-start-1 md:col-start-8 col-span-12 md:col-span-3">
     			<li className="mb-7 mt-2">
-    			   <span className="mb-2" >CONTACTANOS</span>
-    			   <a className="ml-9" href="#">hola@zeladaepstein.com.ar</a>
+    			   <span className="mb-2" >CONTACTO</span>
+    			   <a className="ml-9" href="#">info@zeladaepstein.com.ar</a>
+                   <a className="block ml-9" href="#">+54 11 3414 5063</a>
     			</li>
     			<li>
     			   <span className="mb-2">DIRECCIÓN</span>
-    			   <a className="ml-9 block" href="#">Avenida General Mosconi 2615, Buenos Aires, Argentina</a>
+    			   <a className="ml-9 block" href="#">Av. Gral. Benjamín Victorica 3101, C1427DGD Ciudad Autónoma de Buenos Aires</a>
     			</li>
     		</ul>
     	</div>

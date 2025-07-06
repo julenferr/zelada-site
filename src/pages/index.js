@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Head from "next/head"; // 👈 import para el <Head>
 import Galeria from "../components/galeria";
 import Marquee from "../components/marquee";
 import Cabezal from "../components/cabezal";
@@ -26,28 +27,38 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={scrollContainerRef} data-scroll-container>
-      <Cabezal />
-      <Header />
-      <div id="trigger" className="h-1" />
-
-      <h3
-        id="proyectos"
-        className="w-full pl-5 pr-5 mt-16 md:mt-30 cormorant font-thin items-center"
-      >
-        <img
-          src="/proyectos.svg"
-          alt="Proyectos"
-          data-scroll
-          data-scroll-speed="0.1"
-
-          className="w-full"
-          style={{ display: "block" }}
+    <>
+      <Head>
+        <title>Zeladaepstein - Estudio de diseño</title>
+        <meta name="description" content="Portfolio de zelada" />
+        <link
+          href="https://db.onlinewebfonts.com/c/4c4c08af466e9ad071b6d69cf44093df?family=SaolDisplay-Regular"
+          rel="stylesheet"
         />
-      </h3>
+      </Head>
 
-      <Galeria />
-      <Footer />
-    </div>
+      <div ref={scrollContainerRef} data-scroll-container>
+        <Cabezal />
+        <Header />
+        <div id="trigger" className="h-1" />
+
+        <h3
+          id="proyectos"
+          className="w-full pl-5 pr-5 mt-16 md:mt-30 cormorant font-thin items-center"
+        >
+          <img
+            src="/proyectos.svg"
+            alt="Proyectos"
+            data-scroll
+            data-scroll-speed="0.1"
+            className="w-full"
+            style={{ display: "block" }}
+          />
+        </h3>
+
+        <Galeria />
+        <Footer />
+      </div>
+    </>
   );
 }

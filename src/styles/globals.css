@@ -30,7 +30,11 @@ body {
   font-style: normal;
 }
 
+/* tipo */
 
+.saol{
+  font-family: "SaolDisplay-Regular";
+}
 
 /* Cabezal */
 
@@ -189,8 +193,17 @@ footer .info span{
   text-indent: 8vw;
 }
 
-.perfiles{
+.blend{
+   mix-blend-mode: difference;
+  color: white; /* ayuda a forzar el blanco cuando mezcla */
+}
 
+.perfiles, .fondis{
+background-color: #F6FDFF;
+}
+
+.isolate {
+  isolation: isolate;
 }
 
 .perfiles span{
@@ -216,6 +229,17 @@ footer .info span{
 .logo.shrink{
   width: 240px;
 }
+
+.nosotras-body header{
+  border-bottom: none;
+  transition: all .2s ease;
+}
+
+.nosotras-body header.shrink{
+  border-bottom: 1px solid #1d1d1d;
+  transition: all .2s ease;
+}
+
 
 /* animaciones */
 
