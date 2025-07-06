@@ -16,30 +16,33 @@ export default function TrabajoDetalle() {
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
 
-  useEffect(() => {
-    if (!id) return;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
-    const fetchTrabajo = async () => {
-      try {
-        const res = await fetch(`http://localhost:1337/api/trabajos/${id}?populate=*&publicationState=preview`);
+useEffect(() => {
+  if (!id) return;
 
-        const data = await res.json();
+  const fetchTrabajo = async () => {
+    try {
+      console.log("🔍 Buscando trabajo en:", `${API_URL}/api/trabajos/${id}?populate=*&publicationState=preview`);
+      const res = await fetch(`${API_URL}/api/trabajos/${id}?populate=*&publicationState=preview`);
+      const data = await res.json();
 
-        if (data && data.data) {
-          setTrabajo(data.data);
-          console.log("Trabajo recibido:", data.data);
-        } else {
-          console.warn("No se encontró data para ese ID");
-        }
-      } catch (error) {
-        console.error("Error fetching trabajo:", error);
-      } finally {
-        setLoading(false);
+      if (data && data.data) {
+        setTrabajo(data.data);
+        console.log("✅ Trabajo recibido:", data.data);
+      } else {
+        console.warn("⚠️ No se encontró data para ese ID");
       }
-    };
+    } catch (error) {
+      console.error("❌ Error fetching trabajo:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchTrabajo();
-  }, [id]);
+  fetchTrabajo();
+}, [id]);
+
 
   useEffect(() => {
     if (scrollRef.current && typeof window !== "undefined") {
