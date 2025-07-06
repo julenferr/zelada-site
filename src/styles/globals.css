@@ -15,12 +15,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
   background: var(--background);
@@ -28,7 +22,7 @@ body {
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-style: normal;
-  background: pink;
+  background: var(--background);
 }
 
 /* tipo */
@@ -62,13 +56,16 @@ h2{
 
 header{
   border-color: #1d1d1d;
-  background-color: var(--background);
+  background: var(--background);
   z-index: 9;
   margin-top: -72px;
 }
 
-nav ul li a{
+nav{
+  background: var(--background);
+}
 
+nav ul li a{
   font-size: clamp(12px, 1.145vw, 28px);
   line-height: 1.666vw;
   font-weight: 400;
