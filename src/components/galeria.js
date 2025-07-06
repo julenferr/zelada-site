@@ -13,8 +13,8 @@ export default function Galeria() {
 useEffect(() => {
   const fetchTrabajos = async () => {
     try {
-      console.log("✅ URL FETCH:", `${API_URL}/api/trabajos??populate=*&pagination[limit]=100&sort=orden:asc`);
-      const res = await fetch(`${API_URL}/api/trabajos??populate=*&pagination[limit]=100&sort=orden:asc`);
+      console.log("✅ URL FETCH:", `${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
+      const res = await fetch(`${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
       const data = await res.json();
       setTrabajos(data.data || []);
     } catch (error) {
