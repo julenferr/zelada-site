@@ -39,7 +39,7 @@ body {
 }
 
 h2{
-  font-size: clamp(18px, 2.18vw, 54px);
+  font-size: clamp(20px, 2.18vw, 54px);
   line-height: 1.2857;
 }
 
@@ -268,7 +268,9 @@ footer img.is-inview {
     justify-content: space-between;
   }
 
-
+  .cabezal h2{
+    line-height: 1.4;
+  }
 
 
   footer .info span{
