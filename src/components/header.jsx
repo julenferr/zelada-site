@@ -66,9 +66,9 @@ export default function Header() {
             <Link href="/nosotras">Nosotras</Link>
           </li>
         </ul>
-        <a href="#">
+        <a href="/">
           <img
-            className={`logo transition-all duration-300 w-0 md:w-60 h-8 m-0 ${
+            className={`logo transition-all z-40 duration-300 w-0 md:w-60 h-8 m-0 ${
               shrink ? "shrink" : ""
           }`}
             src="/logo-estudio.svg"
