@@ -18,30 +18,30 @@ export default function TrabajoDetalle() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
-useEffect(() => {
-  if (!id) return;
+  useEffect(() => {
+    if (!id) return;
 
-  const fetchTrabajo = async () => {
-    try {
-      console.log("🔍 Buscando trabajo en:", `${API_URL}/api/trabajos/${id}?populate=*&publicationState=preview`);
-      const res = await fetch(`${API_URL}/api/trabajos/${id}?populate=*&publicationState=preview`);
-      const data = await res.json();
+    const fetchTrabajo = async () => {
+      try {
+        console.log("🔍 Buscando trabajo en:", `${API_URL}/api/trabajos?filters[slug][$eq]=${id}&populate=*&publicationState=preview`);
+        const res = await fetch(`${API_URL}/api/trabajos?filters[slug][$eq]=${id}&populate=*&publicationState=preview`);
+        const data = await res.json();
 
-      if (data && data.data) {
-        setTrabajo(data.data);
-        console.log("✅ Trabajo recibido:", data.data);
-      } else {
-        console.warn("⚠️ No se encontró data para ese ID");
+        if (data && data.data && data.data[0]) {
+          setTrabajo(data.data[0]);
+          console.log("✅ Trabajo recibido:", data.data[0]);
+        } else {
+          console.warn("⚠️ No se encontró un trabajo con ese slug");
+        }
+      } catch (error) {
+        console.error("❌ Error fetching trabajo:", error);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("❌ Error fetching trabajo:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
-  fetchTrabajo();
-}, [id]);
+    fetchTrabajo();
+  }, [id]);
 
 
   useEffect(() => {

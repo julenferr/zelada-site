@@ -9,15 +9,15 @@ export default function Galeria() {
   const [scrolled48, setScrolled48] = useState(false);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
-
+console.log("🌍 API_URL en runtime:", API_URL);
 useEffect(() => {
   const fetchTrabajos = async () => {
     try {
       console.log("✅ URL FETCH:", `${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
       const res = await fetch(`${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
       const data = await res.json();
-      setTrabajos(data.data || []);
-    } catch (error) {
+      console.log("🚀 RAW API DATA:", JSON.stringify(data, null, 2));
+      setTrabajos(data.data || []);    } catch (error) {
       console.error("❌ Error al obtener trabajos:", error);
     }
   };
@@ -89,36 +89,38 @@ useEffect(() => {
       </div>
 
       <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="masonry-grid pr-5 pl-5"
-        columnClassName="masonry-column"
-      >
-        {trabajosFiltrados.map((trabajo) => {
-        const portadaUrl = trabajo.portada?.url;
+  breakpointCols={breakpointColumnsObj}
+  className="masonry-grid pr-5 pl-5"
+  columnClassName="masonry-column"
+>
+  {trabajosFiltrados.map((trabajo) => {
+    console.log("🎯 Trabajo individual:", JSON.stringify(trabajo, null, 2));
 
-        return (
-          <Link
-            key={trabajo.id}
-            href={`/trabajo/${trabajo.id}`}
-            className="masonry-item"
-            data-scroll
-            data-scroll-class="is-inview"
-          >
-            {portadaUrl ? (
-              <img
-                src={portadaUrl}
-                alt={trabajo.titulo}
-                className="w-full h-auto"
-              />
-            ) : (
-              <div className="bg-gray-200 aspect-[4/3]"></div>
-            )}
-            <span className="volanta-home block uppercase pt-5 saol">{trabajo.volantaHome}</span>
-            <h3 className="p-0 pt-2 pb-10">{trabajo.tituloHome}</h3>
-          </Link>
-        );
-      })}
-      </Masonry>
+    const portadaUrl = trabajo.portada?.url;
+
+    return (
+      <Link
+        key={trabajo.id}
+        href={`/trabajo/${trabajo.slug}`}
+        className="masonry-item"
+        data-scroll
+        data-scroll-class="is-inview"
+      >
+        {portadaUrl ? (
+          <img
+            src={portadaUrl}
+            alt={trabajo.titulo}
+            className="w-full h-auto"
+          />
+        ) : (
+          <div className="bg-gray-200 aspect-[4/3]"></div>
+        )}
+        <span className="volanta-home block uppercase pt-5 saol">{trabajo.volantaHome}</span>
+        <h3 className="p-0 pt-2 pb-10">{trabajo.tituloHome}</h3>
+      </Link>
+    );
+  })}
+</Masonry>
     </div>
   );
 }
