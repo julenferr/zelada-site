@@ -91,6 +91,7 @@ h3{
 }
 
 
+
 header.shrink nav {
   padding-top: 8px; /* tailwind: py-2 */
   padding-bottom: 8px;
@@ -259,6 +260,16 @@ footer img.is-inview {
 /* CELULAR */
 
 @media only screen and (max-width: 768px) {
+
+  /* MENU */
+
+  .filtros {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+
 
   footer .info span{
     font-size: 12px;
