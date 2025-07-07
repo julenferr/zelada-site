@@ -80,9 +80,9 @@ export default function Nosotras() {
         		/>
       		</h2>
         </div>
-        <div className="fondis px-5 relative zeta md:col-span-12 grid col-span-4 grid-cols-4 md:grid-cols-12 gap-5 mt-20 mb-0 md:-mt-10">
+        <div className="fondis px-5 relative zeta md:col-span-12 grid col-span-4 grid-cols-4 md:grid-cols-12 gap-5 mt-10 mb-0 md:-mt-10">
         	<div className="estudio col-start-1 md:col-start-2 col-span-2 md:col-span-3">
-        		<p className="blend">Somos un estudio de diseño con fuerte impronta en ilustración.</p>
+        		<p className="blend md:block hidden">Somos un estudio de diseño con fuerte impronta en ilustración.</p>
         	</div>
         	<div className="zeta col-start-0 md:col-start-4 col-span-4 md:col-span-8" data-scroll data-scroll-speed="-0.1">
             {data?.portada?.url && (
@@ -92,7 +92,7 @@ export default function Nosotras() {
         </div>
 
         
-        <p className="px-5 nosotras-parrafo blend -mt-5 md:mt-14">
+        <p className="px-5 nosotras-parrafo mt-10 md:mt-14">
           {data?.parrafo1}
         </p>
         <p className="px-5 nosotras-parrafo mt-10 md:mt-20">
@@ -100,22 +100,22 @@ export default function Nosotras() {
         </p>
 
 
-        <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 mt-50">
+        <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 md:mt-50 mt-0">
         	<div className="perfiles col-start-1 md:col-start-2 col-span-4 relative isolate" data-scroll data-scroll-speed="0.4">
             {data?.imagenAna?.url && (
               <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
         		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol" >Ana Zelada</span>
-        		<p className="ml-0 md:ml-0 span-4 grid blend">
+        		<p className="ml-0 md:ml-0 span-4 grid">
               {data?.bioAna}
             </p>
         	</div>
-        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-80 md:mt-120" data-scroll data-scroll-speed="-0.1">
+        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-20 md:mt-120" data-scroll data-scroll-speed="-0.1">
         		{data?.imagenAna?.url && (
               <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
         		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol">Natalia Epstein</span>
-        		<p className="ml-0 md:ml-0 span-4 grid blend">
+        		<p className="ml-0 md:ml-0 span-4 grid">
               {data?.bioNati}
             </p>
         	</div>
