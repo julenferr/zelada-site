@@ -13,6 +13,24 @@ export default function Nosotras() {
   const scrollInstanceRef = useRef(null);
   const [isContentReady, setIsContentReady] = useState(false);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${API_URL}/api/nosotrass?populate=*`);
+        const json = await res.json();
+        setData(json.data[0]?.attributes || {});
+      } catch (err) {
+        console.error("❌ Error fetching nosotrass:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: scrollContainerRef.current,
@@ -61,7 +79,7 @@ export default function Nosotras() {
         		<p className="blend">Somos un estudio de diseño con fuerte impronta en ilustración.</p>
         	</div>
         	<div className="zeta col-start-0 md:col-start-4 col-span-4 md:col-span-8" data-scroll data-scroll-speed="-0.1">
-        		<img src="http://localhost:1337/uploads/zelada_esptein_foto_grande_ced0937239.webp" alt="" />
+            
         	</div>
         </div>
 
