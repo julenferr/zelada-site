@@ -100,22 +100,22 @@ export default function Nosotras() {
         </p>
 
 
-        <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 md:mt-50 mt-0">
-        	<div className="perfiles col-start-1 md:col-start-2 col-span-4 relative isolate" data-scroll data-scroll-speed="0.4">
+        <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 md:mt-30 mt-0">
+        	<div className="perfiles col-start-1 md:col-start-2 col-span-4 relative isolate" data-scroll data-scroll-speed="0.1">
             {data?.imagenAna?.url && (
-              <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
+              <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1" />
             )}
         		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol" >Ana Zelada</span>
-        		<p className="ml-0 md:ml-0 span-4 grid">
+        		<p className="ml-0 md:ml-0 span-4 grid" style={{ whiteSpace: "pre-line" }}>
               {data?.bioAna}
             </p>
         	</div>
-        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-20 md:mt-120" data-scroll data-scroll-speed="-0.1">
+        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-20 md:mt-120" data-scroll data-scroll-speed="-0.4">
         		{data?.imagenAna?.url && (
               <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
         		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol">Natalia Epstein</span>
-        		<p className="ml-0 md:ml-0 span-4 grid">
+        		<p className="ml-0 md:ml-0 span-4 grid" style={{ whiteSpace: "pre-line" }} >
               {data?.bioNati}
             </p>
         	</div>
