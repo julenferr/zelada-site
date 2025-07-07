@@ -32,7 +32,7 @@ export default function Header() {
       }
     } else if (router.pathname === "/nosotras") {
       // En la página nosotras, shrink apenas empiece a scrollear
-      if (window.scrollY > 1) {
+      if (window.scrollY > 0) {
         setShrink(true);
       } else {
         setShrink(false);
@@ -68,7 +68,7 @@ export default function Header() {
         </ul>
         <a href="/">
           <img
-            className={`logo transition-all z-40 duration-300 w-0 md:w-60 h-8 m-0 ${
+            className={`logo transition-all z-40 duration-300 w-30 md:w-60 h-8 m-0 ${
               shrink ? "shrink" : ""
           }`}
             src="/logo-estudio.svg"
