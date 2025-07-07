@@ -8,27 +8,33 @@ import LocomotiveScroll from "locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 
 export default function Nosotras() {
-
   const scrollContainerRef = useRef(null);
   const scrollInstanceRef = useRef(null);
-  const [isContentReady, setIsContentReady] = useState(false);
+  const [data, setData] = useState(null);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/nosotrass?populate=*`);
+        console.log(`🔍 Fetching desde ${API_URL}/api/nosotrasses?populate=*`);
+        const res = await fetch(`${API_URL}/api/nosotrasses?populate=*`);
         const json = await res.json();
-        setData(json.data[0]?.attributes || {});
+        console.log("✅ DATA RAW:", json);
+
+        if (json.data && json.data.length > 0) {
+          setData(json.data[0]); // ✅ SIN .attributes
+        } else {
+          console.warn("⚠️ No hay datos cargados en nosotrasses");
+          setData({});
+        }
       } catch (err) {
-        console.error("❌ Error fetching nosotrass:", err);
+        console.error("❌ Error fetching nosotrasses:", err);
       }
     };
 
     fetchData();
   }, []);
-
 
 
   useEffect(() => {
@@ -79,30 +85,45 @@ export default function Nosotras() {
         		<p className="blend">Somos un estudio de diseño con fuerte impronta en ilustración.</p>
         	</div>
         	<div className="zeta col-start-0 md:col-start-4 col-span-4 md:col-span-8" data-scroll data-scroll-speed="-0.1">
-            
+            {data?.portada?.url && (
+              <img src={`${data.portada.url}`} alt="Portada" />
+            )}
         	</div>
         </div>
 
         
-        <p className="px-5 nosotras-parrafo blend -mt-5 md:-mt-14">Ana Zelada y Natalia Epstein —diseñadora gráfica e ilustradora— trabajan juntas desde  el año 2021. Comparten una manera de abordar cada proyecto basada en el compromiso con la realidad y sus contextos, la atención al detalle, el pensamiento conceptual y una sensibilidad plástica que atraviesa sus producciones.</p>
-        <p className="px-5 nosotras-parrafo mt-10 md:mt-20">Desarrollan proyectos de comunicación visual en diversas áreas —arte, cultura, sector institucional, público y privado—, con una sólida trayectoria en el ámbito editorial.</p>
+        <p className="px-5 nosotras-parrafo blend -mt-5 md:mt-14">
+          {data?.parrafo1}
+        </p>
+        <p className="px-5 nosotras-parrafo mt-10 md:mt-20">
+          {data?.parrafo2}
+        </p>
 
 
         <div className="px-5 grid grid-cols-4 md:grid-cols-12 gap-5 mt-50">
-        	<div className="perfiles col-start-1 md:col-start-2 col-span-4 relative isolate" data-scroll data-scroll-speed="0.2">
-        		<img className="zeta" src="http://localhost:1337/uploads/zelada_epstein_ana_80e1fd2e57.webp" alt="" data-scroll data-scroll-speed="-0.1"/>
-        		<span className="block neue ml-0 md:ml-30 -mt-20 mb-2 blend">Ana Zelada</span>
-        		<p className="ml-0 md:ml-30 w-73 span-2 grid blend">desarrolla su trabajo en el cruce entre el arte gráfico, la narración visual y la escenografía. Egresada de la EMAD y del ISFA Manuel Belgrano, cuenta con formación de posgrado en Ilustración Profesional (FADU/UBA). Entre 2021 y 2024 se desempeñó como ilustradora en la Subsecretaría de Comunicación y Contenidos de Difusión de la Presidencia de la Nación, participando en campañas gráficas y piezas editoriales de alcance federal. Publicó ilustraciones en libros de diversas editoriales, como Garza de Papel (Mi abuela es un jardín), La Disgráfica (Las niñas salvajes, Batalla), Elemento Disruptivo (La prenda venidera), y materiales para diversas instituciones. Su trabajo ha sido distinguido con la Beca a la Creación del Fondo Metropolitano y  el 1º Premio de Dibujo del salón ISFA Manuel Belgrano y seleccionado para la bienal Artvilo, de Vicente López. Actualmente es docente de Lenguaje visual en la Licenciatura en Puesta en escena de la EMAD. En sus producciones conviven el oficio, la experimentación y una búsqueda visual profunda y poética.</p>
+        	<div className="perfiles col-start-1 md:col-start-2 col-span-4 relative isolate" data-scroll data-scroll-speed="0.4">
+            {data?.imagenAna?.url && (
+              <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
+            )}
+        		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol" >Ana Zelada</span>
+        		<p className="ml-0 md:ml-0 span-4 grid blend">
+              {data?.bioAna}
+            </p>
         	</div>
         	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-80 md:mt-120" data-scroll data-scroll-speed="-0.1">
-        		<img className="zeta" src="http://localhost:1337/uploads/zelada_epstein_natalia_6e577e4529.webp" alt="" data-scroll data-scroll-speed="-0.1" />
-        		<span className="block neue ml-0 md:ml-30 -mt-20 mb-2 blend">Natalia Epstein</span>
-        		<p className="ml-0 md:ml-30 w-73 span-2 grid blend">Aliquam vel aliquet justo. Proin quis eros sodales, varius ligula et, eleifend ex. Morbi tempus efficitur velit id convallis. In hac habitasse platea dictumst. Donec non tortor ut eros elementum porttitor ac id erat.</p>
+        		{data?.imagenAna?.url && (
+              <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
+            )}
+        		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol">Natalia Epstein</span>
+        		<p className="ml-0 md:ml-0 span-4 grid blend">
+              {data?.bioNati}
+            </p>
         	</div>
         </div>
         <div className="mt-70"> 
-        	<img src="http://localhost:1337/uploads/nosotras_foto_grande_screen_3cdec8aaa8.webp" alt="" />
-        </div>
+        	{data?.imagenFull?.url && (
+              <img src={`${data.imagenFull.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
+            )}        </div>
       </main>
 
       <Footer />
