@@ -133,8 +133,8 @@ header.shrink ul li a{
 
 .masonry-item h3{
 
-  font-size: clamp(15px, 0.937vw, 18px);
-  line-height: 1.333;  
+  font-size: clamp(16px, 0.937vw, 18px);
+  line-height: 1.4;  
 }
 
 
@@ -164,10 +164,16 @@ footer ul li{
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;
+    letter-spacing: 0.02em;
   }
 
   footer ul li span a{
     display: block;
+    letter-spacing: 0.02em;
+  }
+
+  footer ul li a{
+    letter-spacing: 0.02em;
   }
 
 footer .info{
