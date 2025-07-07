@@ -105,7 +105,7 @@ export default function Nosotras() {
             {data?.imagenAna?.url && (
               <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
-        		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol" >Ana Zelada</span>
+        		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol" >Ana Zelada</span>
         		<p className="ml-0 md:ml-0 span-4 grid">
               {data?.bioAna}
             </p>
@@ -114,7 +114,7 @@ export default function Nosotras() {
         		{data?.imagenAna?.url && (
               <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
-        		<span className="block ml-0 md:ml-0 mt-10 mb-2 blend saol">Natalia Epstein</span>
+        		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol">Natalia Epstein</span>
         		<p className="ml-0 md:ml-0 span-4 grid">
               {data?.bioNati}
             </p>
