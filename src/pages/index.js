@@ -41,7 +41,7 @@ export default function Home() {
 
         <h3
           id="proyectos"
-          className="w-full pl-5 pr-5 mt-16 md:mt-30 cormorant font-thin items-center"
+          className="w-full pl-5 pr-5 mt-10 md:mt-30 cormorant font-thin items-center"
         >
           <img
             src="/proyectos.svg"
