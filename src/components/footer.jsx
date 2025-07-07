@@ -9,8 +9,9 @@ export default function Footer() {
     		<ul className="col-start-1 md:col-start-8 col-span-12 md:col-span-3">
     			<li className="mb-7 mt-2">
     			   <span className="mb-2" >CONTACTO</span>
-    			   <a className="ml-9" href="#">info@zeladaepstein.com.ar</a>
-                   <a className="block ml-9" href="#">+54 11 3414 5063</a>
+    			   <a className="block ml-9" href="#">info@zeladaepstein.com.ar</a>
+                   <a className="inline ml-9" href="+5491154952629">+54 9 11 5495-2629</a>&nbsp;&nbsp;/&nbsp;
+                   <a className="inline ml-0" href="+5491132463210">+54 9 11 3246-3210</a>
     			</li>
     			<li>
     			   <span className="mb-2">DIRECCIÓN</span>
