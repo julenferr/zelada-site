@@ -115,7 +115,7 @@ useEffect(() => {
         ) : (
           <div className="bg-gray-200 aspect-[4/3]"></div>
         )}
-        <span className="volanta-home block uppercase pt-5 saol">{trabajo.volantaHome}</span>
+        <span className="volanta-home block uppercase pt-5 saol md:saol-medium">{trabajo.volantaHome}</span>
         <h3 className="p-0 pt-2 pb-10">{trabajo.tituloHome}</h3>
       </Link>
     );
