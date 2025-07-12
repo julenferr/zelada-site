@@ -31,6 +31,16 @@ body {
   font-family: "SaolDisplay-Regular";
 }
 
+@font-face {
+    font-family: 'saol_displaymedium';
+    src: url('fonts/saoldisplay-medium-webfont.woff2') format('woff2'),
+         url('fonts/saoldisplay-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 /* Cabezal */
 
 .cabezal {
@@ -289,5 +299,12 @@ footer img.is-inview {
   .nosotras-parrafo{
     line-height: 1.4;
   }
+
+  /* tipografía */
+  
+  .saol{
+    font-family: 'saol_displaymedium';
+  }
+
 }
 
