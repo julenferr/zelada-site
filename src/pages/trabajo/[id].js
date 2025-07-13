@@ -16,7 +16,8 @@ export default function TrabajoDetalle() {
   const scrollRef = useRef(null);
   const locoScrollRef = useRef(null);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://zeladaepstein.com.ar";
+
 
   useEffect(() => {
     if (!id) return;

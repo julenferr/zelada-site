@@ -8,7 +8,7 @@ export default function Galeria() {
   const filtrosRef = useRef(null);
   const [scrolled48, setScrolled48] = useState(false);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://zeladaepstein.com.ar";
 console.log("🌍 API_URL en runtime:", API_URL);
 useEffect(() => {
   const fetchTrabajos = async () => {
