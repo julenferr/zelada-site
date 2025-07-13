@@ -8,46 +8,52 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
-  const handleScroll = () => {
-    if (!headerRef.current) return;
+    const handleScroll = () => {
+      if (!headerRef.current) return;
 
-    if (router.pathname === "/") {
-      // Página principal: shrink cuando header toca h3#proyectos
-      const headerRect = headerRef.current.getBoundingClientRect();
-      const proyectos = document.getElementById("proyectos");
-      if (!proyectos) return;
-      const proyectosRect = proyectos.getBoundingClientRect();
+      if (router.pathname === "/") {
+        const headerRect = headerRef.current.getBoundingClientRect();
+        const proyectos = document.getElementById("proyectos");
+        if (!proyectos) return;
+        const proyectosRect = proyectos.getBoundingClientRect();
 
-      if (headerRect.bottom >= proyectosRect.top) {
-        setShrink(true);
+        if (headerRect.bottom >= proyectosRect.top) {
+          setShrink(true);
+        } else {
+          setShrink(false);
+        }
+      } else if (router.pathname.startsWith("/trabajo/")) {
+        if (window.scrollY > 10) {
+          setShrink(true);
+        } else {
+          setShrink(false);
+        }
+      } else if (router.pathname === "/nosotras") {
+        if (window.scrollY > 0) {
+          setShrink(true);
+        } else {
+          setShrink(false);
+        }
       } else {
         setShrink(false);
       }
-    } else if (router.pathname.startsWith("/trabajo/")) {
-      // Página detalle trabajo: shrink cuando scroll > 10
-      if (window.scrollY > 10) {
-        setShrink(true);
-      } else {
-        setShrink(false);
-      }
-    } else if (router.pathname === "/nosotras") {
-      // En la página nosotras, shrink apenas empiece a scrollear
-      if (window.scrollY > 0) {
-        setShrink(true);
-      } else {
-        setShrink(false);
-      }
+    };
 
-    } else {
-      setShrink(false);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [router.pathname]);
+
+  const scrollToProyectos = (e) => {
+  e.preventDefault();
+  const proyectos = document.getElementById("proyectos");
+    if (proyectos) {
+      const yOffset = -120; // ajustá aquí el offset (ej. -50 o -80 según altura header)
+      const y = proyectos.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll();
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [router.pathname]);
 
 
   return (
@@ -60,7 +66,13 @@ export default function Header() {
       <nav className="flex justify-between items-center px-5 py-5 transition-all duration-300">
         <ul className="flex gap-4 md:gap-8">
           <li>
-            <a href="/">Proyectos</a>
+            {router.pathname === "/" ? (
+              <a href="#proyectos" onClick={scrollToProyectos}>
+                Proyectos
+              </a>
+            ) : (
+              <Link href="/#proyectos">Proyectos</Link>
+            )}
           </li>
           <li>
             <Link href="/nosotras">Nosotras</Link>
@@ -70,7 +82,7 @@ export default function Header() {
           <img
             className={`logo transition-all z-40 duration-300 w-30 md:w-60 h-8 m-0 ${
               shrink ? "shrink" : ""
-          }`}
+            }`}
             src="/logo-estudio.svg"
             alt="Logo del estudio Zelada Epstein"
           />
