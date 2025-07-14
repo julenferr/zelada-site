@@ -1,7 +1,21 @@
 export default function Cabezal() {
   return (
     <div className="cabezal flex flex-col justify-between pt-5">
-      <img data-scroll data-scroll-speed="-0.2" src="/logo-zeladaepstein-marquee.gif" alt="logo estudio zeladaEpstein" />
+    
+      <div class="marquee" data-scroll data-scroll-speed="-0.2">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+          </div>
+          <div class="marquee-group">
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+          </div>
+        </div>
+      </div>
 
       <div className="grid grid-cols-4 md:grid-cols-12 gap-5 pl-5 pr-5 pb-20 md:pb-5">
         <div className="col-span-1">

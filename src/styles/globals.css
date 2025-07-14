@@ -62,6 +62,37 @@ h2{
   position: relative;
 }
 
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  height: 288px;
+  background: transparent;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 90s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+}
+
+.marquee-group img {
+  height: 14vw;
+  width: auto;
+  margin-right: 50px; /* espacio entre logos */
+  flex-shrink: 0;
+}
+
+/* animación */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* Menú */
 
 header{
@@ -270,6 +301,12 @@ footer img.is-inview {
 /* CELULAR */
 
 @media only screen and (max-width: 768px) {
+
+  /* CABEZAL */
+
+  .marquee-group img{
+    height: 25vw;
+  }
 
   /* MENU */
 
