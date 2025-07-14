@@ -42,7 +42,7 @@ export default function TrabajoDetalle() {
     };
 
     fetchTrabajo();
-  }, [id]);
+  }, [id, API_URL]);
 
 
   useEffect(() => {
