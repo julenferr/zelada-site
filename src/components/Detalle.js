@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
 const Detalle = ({ imagenes }) => {
@@ -53,7 +54,7 @@ const Detalle = ({ imagenes }) => {
 
   return (
     <div>
-      <div className="">
+      <div>
         {imagenes.map((img, i) => {
           const fullUrl = img.url.startsWith("http") ? img.url : baseUrl + img.url;
           return (
@@ -82,6 +83,14 @@ const Detalle = ({ imagenes }) => {
         index={index}
         render={{ slide: render }}
         on={{ view: ({ index }) => setIndex(index) }}
+        plugins={[Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 4,
+          doubleTapDelay: 300,
+          wheelZoomRatio: 0.2,
+          pinchZoom: true,
+          scrollToZoom: true,
+        }}
       />
     </div>
   );
