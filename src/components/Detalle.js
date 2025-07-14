@@ -4,7 +4,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 
-// ✅ NUEVO: Componente para video con botón de play al centro
+// Componente separado para el video con botón de play
 const VideoSlide = ({ src }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
@@ -19,7 +19,7 @@ const VideoSlide = ({ src }) => {
   const handlePause = () => setPlaying(false);
 
   return (
-    <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}> {/* 🔧 EDITADO: aseguramos aspect ratio */}
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <video
         ref={videoRef}
         src={src}
@@ -30,10 +30,11 @@ const VideoSlide = ({ src }) => {
         onPause={handlePause}
         onEnded={handlePause}
         style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover", // 🔧 EDITADO: ocupá el espacio sin recorte
+          maxWidth: "100%",
+          maxHeight: "100%",
+          objectFit: "contain",
           display: "block",
+          margin: "0 auto",
         }}
       />
       {!playing && (
@@ -68,7 +69,7 @@ const Detalle = ({ imagenes }) => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const baseUrl = "https://zelada-cms.onrender.com";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
   const slides = imagenes
     .map((item) => {
@@ -92,7 +93,7 @@ const Detalle = ({ imagenes }) => {
     setOpen(true);
   };
 
-  // ✅ Usa VideoSlide también en el lightbox
+  // ahora simplemente usa el componente VideoSlide
   const render = ({ slide }) => {
     if (slide.type === "custom-video") {
       return <VideoSlide src={slide.src} />;
@@ -120,8 +121,14 @@ const Detalle = ({ imagenes }) => {
                   height={800}
                 />
               ) : (
-                // ✅ NUEVO: usamos el mismo VideoSlide en la vista previa
-                <VideoSlide src={fullUrl} />
+                <video
+                  src={fullUrl}
+                  className="w-full h-auto"
+                  controls
+                  muted
+                  preload="metadata"
+                  playsInline
+                />
               )}
             </div>
           );
