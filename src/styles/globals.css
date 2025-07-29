@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #F6FDFF;
+  --background: #fcfbfa;
   --foreground: #171717;
 }
 
@@ -45,7 +45,7 @@ body {
 
 .cabezal {
   height: 100vh;
-  background-color: #f7fdff;
+  background-color: #fcfbfa;
 }
 
 h2{
@@ -245,7 +245,7 @@ footer .info span{
 }
 
 .perfiles, .fondis{
-background-color: #F6FDFF;
+background-color: #fcfbfa;
 }
 
 .isolate {
@@ -305,7 +305,7 @@ footer img.is-inview {
   /* CABEZAL */
 
   .marquee-group img{
-    height: 25vw;
+    height: 25vwsrc;
   }
 
   /* MENU */
@@ -335,6 +335,11 @@ footer img.is-inview {
 
   .nosotras-parrafo{
     line-height: 1.4;
+  }
+
+  header.shrink nav{
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 
   /* tipografía */
