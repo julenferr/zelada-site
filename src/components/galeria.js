@@ -107,7 +107,7 @@ export default function Galeria() {
               data-scroll-class="is-inview"
             >
               {portadaUrl ? (
-                <Image
+                <img
                   src={portadaUrl}
                   alt={trabajo.titulo}
                   width={700}
