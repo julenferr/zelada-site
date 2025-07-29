@@ -82,7 +82,7 @@ export default function Nosotras() {
         </div>
         <div className="fondis px-5 relative zeta md:col-span-12 grid col-span-4 grid-cols-4 md:grid-cols-12 gap-5 mt-10 mb-0 md:-mt-10">
         	<div className="estudio col-start-1 md:col-start-2 col-span-2 md:col-span-3">
-        		<p className="blend md:block hidden">Somos un estudio de diseño con fuerte impronta en ilustración.</p>
+        		<p className="blend md:block hidden">Somos un estudio de diseño con fuerte impronta en <em>ilustración</em>.</p>
         	</div>
         	<div className="zeta col-start-0 md:col-start-4 col-span-4 md:col-span-8" data-scroll data-scroll-speed="-0.1">
             {data?.portada?.url && (
@@ -105,13 +105,13 @@ export default function Nosotras() {
             {data?.imagenAna?.url && (
               <img src={`${data.imagenAna.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1" />
             )}
-        		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol" >Ana Zelada</span>
+        		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol" >Ana C. Zelada</span>
         		<p className="ml-0 md:ml-0 span-4 grid" style={{ whiteSpace: "pre-line" }}>
               {data?.bioAna}
             </p>
         	</div>
         	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-20 md:mt-120" data-scroll data-scroll-speed="0.2">
-        		{data?.imagenAna?.url && (
+        		{data?.imagenNati?.url && (
               <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
         		<span className="block ml-0 md:ml-0 mt-10 mb-5 blend saol">Natalia Epstein</span>

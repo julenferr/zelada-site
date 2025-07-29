@@ -83,7 +83,7 @@ h2{
 .marquee-group img {
   height: 14vw;
   width: auto;
-  margin-right: 50px; /* espacio entre logos */
+  margin-right: 0px; /* espacio entre logos */
   flex-shrink: 0;
 }
 
@@ -114,7 +114,7 @@ nav ul li a{
 }
 
 .bloque-h2{
-  background-color: #F6FDFF;
+  background-color: #fcfbfa;
 }
 
 .cormorant{
