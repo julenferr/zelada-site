@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Head from "next/head"; // 👈 import para el <Head>
+import Head from "next/head"; 
 import Galeria from "../components/galeria";
 import Marquee from "../components/marquee";
 import Cabezal from "../components/cabezal";
@@ -21,8 +21,36 @@ export default function Home() {
 
     scrollInstanceRef.current = scroll;
 
+    // Si hay scroll guardado, lo restauramos
+    const savedScroll = sessionStorage.getItem("scrollPosition");
+    if (savedScroll) {
+      setTimeout(() => {
+        scroll.scrollTo(parseInt(savedScroll), {
+          duration: 0,
+          disableLerp: true,
+        });
+      }, 100);
+    }
+
+    // Guardamos scroll al salir
+    const saveScroll = () => {
+      const scrollY = scroll.scroll.instance.scroll.y;
+      sessionStorage.setItem("scrollPosition", scrollY);
+    };
+
+    // También limpiamos si es recarga completa (opcional)
+    if (performance.navigation.type === 1) {
+      sessionStorage.removeItem("scrollPosition");
+    }
+
+    window.addEventListener("beforeunload", saveScroll);
+    window.addEventListener("pagehide", saveScroll);
+
     return () => {
+      saveScroll();
       scroll.destroy();
+      window.removeEventListener("beforeunload", saveScroll);
+      window.removeEventListener("pagehide", saveScroll);
     };
   }, []);
 
