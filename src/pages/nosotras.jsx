@@ -110,7 +110,7 @@ export default function Nosotras() {
               {data?.bioAna}
             </p>
         	</div>
-        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 mt-20 md:mt-120" data-scroll data-scroll-speed="0.2">
+        	<div className="perfiles col-start-0 md:col-start-8 col-span-4 -mt-10 md:mt-120" data-scroll data-scroll-speed="0.2">
         		{data?.imagenNati?.url && (
               <img src={`${data.imagenNati.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}
@@ -120,7 +120,7 @@ export default function Nosotras() {
             </p>
         	</div>
         </div>
-        <p className="px-5 nosotras-parrafo mt-10 md:mt-20" data-scroll data-scroll-speed="0.2">
+        <p className="px-5 nosotras-parrafo mt-0 md:mt-20" data-scroll data-scroll-speed="0.2">
           Conciben la imagen como una herramienta central de comunicación, buscando transmitir ideas con claridad, profundidad y sensibilidad en cada pieza.
         </p>
         <div className="-mt-10 mb-10"> 
