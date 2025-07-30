@@ -16,7 +16,14 @@ const VideoSlide = ({ src }) => {
     }
   };
 
+
   const handlePause = () => setPlaying(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0.1; // ⚠️ fuerza un frame visible
+    }
+  }, []);
 
   return (
     <div style={{ position: "relative", height: "100%" }}> {/* 🔧 EDITADO: aseguramos aspect ratio */}
