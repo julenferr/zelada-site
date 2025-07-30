@@ -38,6 +38,7 @@ const VideoSlide = ({ src }) => {
       />
       {!playing && (
         <button
+          className="boton-ocultar"
           onClick={handlePlay}
           style={{
             position: "absolute",

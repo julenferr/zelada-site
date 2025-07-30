@@ -188,6 +188,7 @@ header.shrink ul li a{
 }
 
 
+
 /* footer */
 
 footer{
@@ -355,4 +356,12 @@ footer img.is-inview {
   .saol{
     font-family: 'saol_displaymedium';
   }
+
+  /* Lightbox */
+
+  .boton-ocultar{
+    display: none;
+  }
+
+
 }
