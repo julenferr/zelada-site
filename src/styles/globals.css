@@ -24,6 +24,10 @@ body {
   font-style: normal;
   background: var(--background);
 }
+html,
+body {
+  transition: none !important;
+}
 
 /* tipo */
 
@@ -177,6 +181,10 @@ header.shrink ul li a{
 
   font-size: clamp(16px, 0.937vw, 18px);
   line-height: 1.4;  
+}
+
+.yarl__fullsize{
+  height: auto!important;
 }
 
 
