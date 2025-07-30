@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head"; 
 import Galeria from "../components/galeria";
 import Marquee from "../components/marquee";
@@ -11,52 +11,52 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 export default function Home() {
   const scrollContainerRef = useRef(null);
   const scrollInstanceRef = useRef(null);
+  const [readyToScroll, setReadyToScroll] = useState(false);
+  
+
 
   useEffect(() => {
-  const scroll = new LocomotiveScroll({
-    el: scrollContainerRef.current,
-    smooth: true,
-    lerp: 0.08,
-  });
+    const scroll = new LocomotiveScroll({
+      el: scrollContainerRef.current,
+      smooth: true,
+      lerp: 0.08,
+    });
 
-  scrollInstanceRef.current = scroll;
+    scrollInstanceRef.current = scroll;
 
-  // Restaurar scroll si hay guardado
-  const savedScroll = sessionStorage.getItem("scrollPosition");
+    return () => {
+      scroll.destroy();
+    };
+  }, []);
 
-  if (savedScroll) {
-    // Esperamos que todo esté pintado, y scroll esté inicializado
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        scroll.scrollTo(parseInt(savedScroll), {
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem("saved-scroll");
+    const fromDetail = sessionStorage.getItem("from-detail");
+
+    if (fromDetail === "true" && savedScroll && readyToScroll) {
+      const target = parseFloat(savedScroll);
+      console.log("🔁 Restaurando scroll a:", target);
+
+      setTimeout(() => {
+        // 👇 Forzar que LocomotiveScroll recalculé su layout
+        if (scrollInstanceRef.current) {
+          scrollInstanceRef.current.update?.();
+        }
+
+        scrollInstanceRef.current.scrollTo(target, {
           duration: 0,
           disableLerp: true,
         });
-      });
-    }, 300); // tiempo más largo para asegurar carga
-  }
 
-  // Guardar scroll al salir
-  const saveScroll = () => {
-    const scrollY = scroll.scroll?.instance?.scroll?.y || 0;
-    sessionStorage.setItem("scrollPosition", scrollY);
-  };
+        sessionStorage.removeItem("saved-scroll");
+        sessionStorage.removeItem("from-detail");
+      }, 500);
+    }
+  }, [readyToScroll]);
 
-  // Si es recarga completa, podés limpiar scroll guardado
-  if (performance.navigation.type === 1) {
-    sessionStorage.removeItem("scrollPosition");
-  }
 
-  window.addEventListener("beforeunload", saveScroll);
-  window.addEventListener("pagehide", saveScroll);
 
-  return () => {
-    saveScroll();
-    scroll.destroy();
-    window.removeEventListener("beforeunload", saveScroll);
-    window.removeEventListener("pagehide", saveScroll);
-  };
-}, []);
+
 
   
 
@@ -87,7 +87,7 @@ export default function Home() {
           />
         </h3>
 
-        <Galeria />
+        <Galeria onReady={() => setReadyToScroll(true)} />
         <Footer />
       </div>
     </>

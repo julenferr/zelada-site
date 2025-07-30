@@ -3,30 +3,35 @@ import Masonry from "react-masonry-css";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Galeria() {
+export default function Galeria({ onReady }) {
   const [trabajos, setTrabajos] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todos");
   const filtrosRef = useRef(null);
   const [scrolled48, setScrolled48] = useState(false);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
-  console.log("🌍 API_URL en runtime:", API_URL);
+  //console.log("🌍 API_URL en runtime:", API_URL);
 
   useEffect(() => {
     const fetchTrabajos = async () => {
       try {
-        console.log("✅ URL FETCH:", `${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
+        //console.log("✅ URL FETCH:", `${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
         const res = await fetch(`${API_URL}/api/trabajos?populate=*&pagination[limit]=100&sort=orden:asc`);
         const data = await res.json();
-        console.log("🚀 RAW API DATA:", JSON.stringify(data, null, 2));
+        //console.log("🚀 RAW API DATA:", JSON.stringify(data, null, 2));
         setTrabajos(data.data || []);
+        if (onReady) onReady();
       } catch (error) {
-        console.error("❌ Error al obtener trabajos:", error);
+        //console.error("❌ Error al obtener trabajos:", error);
       }
     };
 
+
+
     fetchTrabajos();
   }, [API_URL]);
+
+
 
   useEffect(() => {
     function onScroll() {
@@ -94,7 +99,7 @@ export default function Galeria() {
         columnClassName="masonry-column"
       >
         {trabajosFiltrados.map((trabajo) => {
-          console.log("🎯 Trabajo individual:", JSON.stringify(trabajo, null, 2));
+          //console.log("🎯 Trabajo individual:", JSON.stringify(trabajo, null, 2));
 
           const portadaUrl = trabajo.portada?.url;
 
@@ -105,6 +110,11 @@ export default function Galeria() {
               className="masonry-item"
               data-scroll
               data-scroll-class="is-inview"
+              onClick={() => {
+                const scrollY = window.scrollY || window.pageYOffset;
+                sessionStorage.setItem("saved-scroll", scrollY);
+                sessionStorage.setItem("from-detail", "true");
+              }}
             >
               {portadaUrl ? (
                 <img
