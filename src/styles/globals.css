@@ -360,7 +360,7 @@ footer img.is-inview {
   /* Lightbox */
 
   .boton-ocultar{
-    display: none;
+    display: none!important;
   }
 
 
