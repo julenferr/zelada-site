@@ -13,46 +13,52 @@ export default function Home() {
   const scrollInstanceRef = useRef(null);
 
   useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: scrollContainerRef.current,
-      smooth: true,
-      lerp: 0.08,
-    });
+  const scroll = new LocomotiveScroll({
+    el: scrollContainerRef.current,
+    smooth: true,
+    lerp: 0.08,
+  });
 
-    scrollInstanceRef.current = scroll;
+  scrollInstanceRef.current = scroll;
 
-    // Si hay scroll guardado, lo restauramos
-    const savedScroll = sessionStorage.getItem("scrollPosition");
-    if (savedScroll) {
-      setTimeout(() => {
+  // Restaurar scroll si hay guardado
+  const savedScroll = sessionStorage.getItem("scrollPosition");
+
+  if (savedScroll) {
+    // Esperamos que todo esté pintado, y scroll esté inicializado
+    setTimeout(() => {
+      requestAnimationFrame(() => {
         scroll.scrollTo(parseInt(savedScroll), {
           duration: 0,
           disableLerp: true,
         });
-      }, 100);
-    }
+      });
+    }, 300); // tiempo más largo para asegurar carga
+  }
 
-    // Guardamos scroll al salir
-    const saveScroll = () => {
-      const scrollY = scroll.scroll?.instance?.scroll?.y || 0;
-      sessionStorage.setItem("scrollPosition", scrollY);
-    };
+  // Guardar scroll al salir
+  const saveScroll = () => {
+    const scrollY = scroll.scroll?.instance?.scroll?.y || 0;
+    sessionStorage.setItem("scrollPosition", scrollY);
+  };
 
-    // También limpiamos si es recarga completa (opcional)
-    if (performance.navigation.type === 1) {
-      sessionStorage.removeItem("scrollPosition");
-    }
+  // Si es recarga completa, podés limpiar scroll guardado
+  if (performance.navigation.type === 1) {
+    sessionStorage.removeItem("scrollPosition");
+  }
 
-    window.addEventListener("beforeunload", saveScroll);
-    window.addEventListener("pagehide", saveScroll);
+  window.addEventListener("beforeunload", saveScroll);
+  window.addEventListener("pagehide", saveScroll);
 
-    return () => {
-      saveScroll();
-      scroll.destroy();
-      window.removeEventListener("beforeunload", saveScroll);
-      window.removeEventListener("pagehide", saveScroll);
-    };
-  }, []);
+  return () => {
+    saveScroll();
+    scroll.destroy();
+    window.removeEventListener("beforeunload", saveScroll);
+    window.removeEventListener("pagehide", saveScroll);
+  };
+}, []);
+
+  
 
   return (
     <>
