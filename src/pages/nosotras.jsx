@@ -123,7 +123,7 @@ export default function Nosotras() {
         <p className="px-5 nosotras-parrafo mt-10 md:mt-20" data-scroll data-scroll-speed="0.2">
           Conciben la imagen como una herramienta central de comunicación, buscando transmitir ideas con claridad, profundidad y sensibilidad en cada pieza.
         </p>
-        <div className="-mt-10"> 
+        <div className="-mt-10 mb-10"> 
         	{data?.imagenFull?.url && (
               <img src={`${data.imagenFull.url}`} className="zeta" alt="Portada" data-scroll data-scroll-speed="-0.1"/>
             )}        </div>
