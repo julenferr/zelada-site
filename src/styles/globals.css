@@ -264,6 +264,10 @@ background-color: #fcfbfa;
   line-height: 1.2;
 }
 
+.perfiles p{
+  line-height: 1.7;
+}
+
 .estudio{
       position: absolute;
     top: 0;
