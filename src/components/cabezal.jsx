@@ -3,16 +3,16 @@ export default function Cabezal() {
     <div className="cabezal flex flex-col justify-between pt-5">
     
       <div class="marquee" data-scroll data-scroll-speed="-0.2">
-        <div class="marquee-track">
-          <div class="marquee-group">
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+        <div className="marquee-track">
+          <div className="marquee-group">
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
           </div>
           <div class="marquee-group">
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
-            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1752450532/zelada_epstein_logo_dc262473b5.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
+            <img src="https://res.cloudinary.com/dxwolohnw/image/upload/v1754614975/zelada_epstein_logo_0024893784.svg" alt="Zelada Epstein Logo" />
           </div>
         </div>
       </div>
